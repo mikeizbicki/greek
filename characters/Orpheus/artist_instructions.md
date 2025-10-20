@@ -1,3 +1,0 @@
-# Artist Instructions
-
-Orpheus is a small koala with soft medium-gray fur and rounded ears edged with long, pale-cream fluff. His face has lighter silver-gray fur with a white-cream muzzle, and a broad charcoal-black nose centered above it. His eyes are deep, dark brown, and the inner ear skin shows as soft pink beneath the cream fringe. His paws are dark slate-gray with visible pads and short black claws, while his chest and belly are light gray-cream contrasting with the slightly darker gray of his back.

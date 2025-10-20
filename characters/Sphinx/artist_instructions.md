@@ -1,3 +1,0 @@
-# Sphinx — Artist Instructions
-
-The Sphinx has a lion’s body (sand‑gold fur), feathered eagle wings (ivory pinions), and a female human face with cold, appraising eyes; the mane is warm umber framing the face. Mouth often slightly open to show sharp canines; claws unsheathed on forepaws; wings raise high when blocking and cast a threatening silhouette. Keep her larger than a donkey but smaller than a cart; tail lashes when angered and wraps tight when she waits to strike. Emphasize predatory posture: low shoulders, weight forward, wings tense, eyes narrowed. Color anchors: fur sand‑gold, mane warm umber, pinions ivory; eyes dark with a hard glint.

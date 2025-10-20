@@ -1,3 +1,0 @@
-## Perseus (Περσεύς) — Artist Instructions
-
-Perseus is a small, sturdy green dinosaur with a medium leaf‑green body and a lighter yellow‑cream belly, lower jaw, and tail underside. He has bright, curious dark‑brown eyes and a clear five‑point white star-shaped spot on his left cheek. His build is compact with short forearms and strong hind legs; his claws are charcoal gray, and his rounded snout shows a friendly smile with a soft pink mouth interior. Keep his tail thick and steady, matching the body green with the same yellow‑cream tone on the underside.
