@@ -28,8 +28,7 @@
   description:
     A description of the character that can be used to ensure consistency accross many different books.
   schema: "
-    name: full name of character,
-    nickname: a list of any nicknames that the character is commonly called,
+    name: name of character (one word only),
     description: 1 sentence,
     sex: male/female,
     personality: 1-3 sentences,
@@ -142,7 +141,7 @@
     Each JSONL object entry represents a single page in the book.
     The file should contain 32 entries (and thus 32 pages).
     The story should be simple but have a clear beginning, middle, and end.
-  schema_file: content.json-schema
+  schema: 'text_koine: the text for this page of the story in koine greek, text_english: a literal translation of the greek'
   dependencies:
     about.md
     writing.md
@@ -157,3 +156,56 @@
       # this means that it will not find the `themes.md` file in `books/$LEVEL`;
       # the simpler ls command results in errors from treating that file like a directory
       find books/$LEVEL -maxdepth 1 -type d -not -path books/$LEVEL -printf "%f\n"
+
+"books/$LEVEL/$BOOK/page_$PAGE/art.json":
+  description:
+    You are describing the artwork for a single page of a book.
+    You are on page number $PAGE, whose content is
+    <content>
+    $(head -n $PAGE "books/$LEVEL/$BOOK/content.jsonl" | tail -n 1)
+    </content>
+    The artwork should help young children learning Koine Greek how to understand the text and should be consistent with the other pages in the book.
+    The full contents of the book are defined in the file "books/$LEVEL/$BOOK/content.jsonl" and the art descriptions of the other pages are defined in "books/$LEVEL/$BOOK/page_*/art.json".
+    You should use these files to ensure that your art descriptions flow well from one page to the next and maintain consistency,
+    but your description of this page should be based only on the content of this page and not the other files.
+    Descriptions of future pages should include details from previous pages whenever those pages have the same setting or characters to ensure consistency.
+  schema_file: art.json-schema
+  dependencies:
+    - about.md
+    - art.md
+    - characters/$CHARACTER/about.json
+    - books/$LEVEL/themes.md
+    - books/$LEVEL/$BOOK/description.json
+    - books/$LEVEL/$BOOK/content.jsonl
+  variables:
+    LEVEL:
+      ls books
+    BOOK:
+      find books/$LEVEL -maxdepth 1 -type d -not -path books/$LEVEL -printf "%f\n"
+    PAGE:
+      seq $(wc -l < "books/$LEVEL/$BOOK/content.jsonl")
+
+"books/$LEVEL/$BOOK/page_$PAGE/art.png":
+  description:
+    Follow the instructions to generate art for the children's book.
+    The art should illustrate the following text, but not include any text.
+    <text>
+    $(head -n $PAGE "books/$LEVEL/$BOOK/content.jsonl" | tail -n 1)
+    </text>
+    <instructions>
+    $(cat books/$LEVEL/$BOOK/page_$PAGE/art.json)
+    </instructions>
+  image_quality: high
+  image_orientation: landscape
+  dependencies:
+    - art.md
+    - characters/$CHARACTER/images/$IMAGE.png
+  variables:
+    LEVEL:
+      ls books
+    BOOK:
+      find books/$LEVEL -maxdepth 1 -type d -not -path books/$LEVEL -printf "%f\n"
+    PAGE:
+      seq $(wc -l < "books/$LEVEL/$BOOK/content.jsonl")
+    CHARACTER:
+      echo Theseus

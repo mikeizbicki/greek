@@ -1,3 +1,0 @@
-# Cerberus — Artist Instructions
-
-Cerberus is a massive, muscular three‑headed hound with shaggy charcoal‑black fur; each head shows open, snarling jaws with ivory teeth and ropes of saliva, and eyes that glow ember‑orange in dim light. Ears pin back when he guards; hackles bristle along the neck and shoulders; paws are broad with short black claws often flexed and visible. Noses, lips, and paw pads are deep charcoal; tongues muted rose‑pink; scars may be pale against the dark coat. A heavy, bronze‑studded collar is always present, and the tail is thick and whip‑strong. Keep proportions low‑slung and predatory, with a threatening, ready‑to‑pounce stance as default.
