@@ -199,7 +199,7 @@
   image_orientation: landscape
   dependencies:
     - art.md
-    - characters/$CHARACTER/images/$IMAGE.png
+    - characters/Theseus/images/$IMAGE.png
   variables:
     LEVEL:
       ls books
