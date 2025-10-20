@@ -199,6 +199,7 @@
   image_orientation: landscape
   dependencies:
     - art.md
+    - characters/$CHARACTER/artist_instructions.md
   image_references:
     characters/Theseus/images/theseus_front_neutral.png
   variables:
