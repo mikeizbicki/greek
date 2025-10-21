@@ -1,0 +1,23 @@
+\documentclass[landscape]{article}
+\usepackage[letterpaper, margin=0in]{geometry}
+\usepackage{graphicx}
+\usepackage[greek,english]{babel}
+\usepackage{tikz}
+
+\pagestyle{empty}
+
+\begin{document}
+
+\begin{tikzpicture}[remember picture, overlay]
+    % Full page background image
+    \node at (current page.center) {
+        \includegraphics[width=\paperwidth,height=\paperheight]{art.png}
+    };
+
+    % Greek text in top left corner
+    \node[anchor=north west, text width=3in] at ([xshift=0.5in,yshift=-0.5in]current page.north west) {
+        \Large\textgreek{\input{content.txt}}
+    };
+\end{tikzpicture}
+
+\end{document}

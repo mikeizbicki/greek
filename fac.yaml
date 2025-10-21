@@ -200,6 +200,8 @@
   dependencies:
     - art.md
     - characters/$CHARACTER/artist_instructions.md
+    - target: books/$LEVEL/$BOOK/page_$PAGE/art.json
+      include: false
   image_references:
     characters/Theseus/images/theseus_front_neutral.png
   variables:
@@ -211,3 +213,31 @@
       seq $(wc -l < "books/$LEVEL/$BOOK/content.jsonl")
     CHARACTER:
       echo Theseus
+
+"books/$LEVEL/$BOOK/page_$PAGE/page.pdf":
+  cmd: |
+    cp page_template.tex books/$LEVEL/$BOOK/page_$PAGE/page.tex
+    cd books/$LEVEL/$BOOK/page_$PAGE/
+    head -n $PAGE ../content.jsonl | tail -n 1 | jq -r .text_koine > content.txt
+    pdflatex page.tex && pdflatex page.tex
+  dependencies:
+    page_template.tex
+    books/$LEVEL/$BOOK/page_$PAGE/art.png
+  variables:
+    LEVEL:
+      ls books
+    BOOK:
+      find books/$LEVEL -maxdepth 1 -type d -not -path books/$LEVEL -printf "%f\n"
+    PAGE:
+      seq $(wc -l < "books/$LEVEL/$BOOK/content.jsonl")
+
+"books/$LEVEL/$BOOK/pages.pdf":
+  cmd:
+    pdfunite books/$LEVEL/$BOOK/page_*/page.pdf books/$LEVEL/$BOOK/pages.pdf
+  dependencies:
+    books/$LEVEL/$BOOK/page_$PAGE/page.pdf
+  variables:
+    LEVEL:
+      ls books
+    BOOK:
+      find books/$LEVEL -maxdepth 1 -type d -not -path books/$LEVEL -printf "%f\n"

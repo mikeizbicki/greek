@@ -1,0 +1,36 @@
+\documentclass[landscape]{article}
+\usepackage[letterpaper, margin=0in]{geometry}
+\usepackage{graphicx}
+%\usepackage{gfsartemisia}
+%\usepackage{gfsdidot}
+\usepackage{gfsneohellenic}
+\usepackage[greek,english]{babel}
+\usepackage{tikz}
+
+\pagestyle{empty}
+
+\begin{document}
+
+\begin{tikzpicture}[remember picture, overlay]
+    % Full page background image
+    %\node at (current page.center) {
+        %\includegraphics[width=\paperwidth]{art.png}
+    %};
+    % Greek text in top left corner loaded from file
+    %\node[anchor=north west, text width=10in] at ([xshift=0.5in,yshift=-0.5in]current page.north west) {
+        %\Huge\textgreek{\input{content.txt}}
+    %};
+
+    % Full page background image - flush with top
+    \node[anchor=north] (background image) at ([yshift=10pt]current page.north) {
+        \includegraphics[width=\paperwidth]{art.png}
+    };
+
+    % Greek text positioned relative to bottom of image
+    \node[anchor=north west, text width=10in] at ([xshift=0.5in,yshift=-0.25in]background image.south west) {
+        \Huge\textgreek{\input{content.txt}}
+    };
+
+\end{tikzpicture}
+
+\end{document}

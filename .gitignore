@@ -1,2 +1,11 @@
 *.sw?
 .*.fac
+
+# Common LaTeX auxiliary files to ignore
+*.aux
+*.log
+*.out
+*.toc
+*.fdb_latexmk
+*.fls
+*.synctex.gz
